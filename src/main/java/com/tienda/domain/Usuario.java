@@ -35,24 +35,4 @@ public class Usuario implements Serializable {
     @OneToMany
     @JoinColumn(name="id_usuario")
     private List<Rol> roles;
-    
-    public String getRutaImagen() {
-    return rutaImagen;
-}
-
-public List<Rol> getRoles() {
-    return roles;
-}
-
-public String getNombre() {
-    return nombre;
-}
-
-public String getUsername() {
-    return username;
-}
-
-public String getPassword() {
-    return password;
-}
 }

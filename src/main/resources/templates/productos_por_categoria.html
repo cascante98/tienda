@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reporte: Productos por Categoría</title>
+</head>
+<body>
+    <h2>Productos por Categoría</h2>
+    <form method="get" action="/reporte/productos-por-categoria">
+        <label for="idCategoria">Seleccione una categoría:</label>
+        <select name="idCategoria" id="idCategoria">
+            <option th:each="categoria : ${categorias}" 
+                    th:value="${categoria.idCategoria}" 
+                    th:text="${categoria.descripcion}"></option>
+        </select>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <table th:if="${productos != null}" border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Existencias</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="producto : ${productos}">
+                <td th:text="${producto.descripcion}"></td>
+                <td th:text="${producto.precio}"></td>
+                <td th:text="${producto.existencias}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

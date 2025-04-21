@@ -19,12 +19,12 @@ public class Producto implements Serializable {
     private String descripcion;
     private String detalle;
     private double precio;
-    private int existencias;    
+    private int existencias;
     @Column(name = "ruta_imagen")
     private String rutaImagen;
     private boolean activo;
     
-    @ManyToOne
+    @ManyToOne​
     @JoinColumn(name="id_categoria")
     Categoria categoria;
 
@@ -33,38 +33,13 @@ public class Producto implements Serializable {
 
     public Producto(String descripcion, String detalle, double precio, int existencias, String imagen, boolean activo) {
         this.descripcion = descripcion;
-        this.activo = activo;
+        this.detalle = detalle;
         this.precio = precio;
         this.existencias = existencias;
         this.rutaImagen = imagen;
         this.activo = activo;
     }
-    public boolean isActivo() {
-    return activo;
-}
-
-public long getIdProducto() {
-    return idProducto;
-}
- public void setRutaImagen(String rutaImagen) {
-        this.rutaImagen = rutaImagen;
-    }
-
-    // Método getter para rutaImagen
-    public String getRutaImagen() {
-        return rutaImagen;
-    }
     
-      private int cantidad; // Asegúrate de que este campo exista
-
-    // Getters y setters
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
+    
 
 }

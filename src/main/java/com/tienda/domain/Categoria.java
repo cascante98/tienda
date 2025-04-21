@@ -11,7 +11,7 @@ import java.util.List;
 public class Categoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
@@ -23,9 +23,9 @@ public class Categoria implements Serializable {
     private boolean activo;
 
     @OneToMany
-    @JoinColumn(name = "id_categoria")
+    @JoinColumn(name="id_categoria",updatable=false)
     List<Producto> productos;
-
+    
     public Categoria() {
     }
 
@@ -33,26 +33,7 @@ public class Categoria implements Serializable {
         this.descripcion = descripcion;
         this.activo = activo;
     }
-
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public long getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setRutaImagen(String rutaImagen) {
-        this.rutaImagen = rutaImagen;
-    }
-
-    // Método getter para rutaImagen
-    public String getRutaImagen() {
-        return rutaImagen;
-    }
     
-    public List<Producto> getProductos() {
-    return productos;
-}
+    
 
 }
